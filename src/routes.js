@@ -10,8 +10,3 @@ routes.get('/test', (req, res) => {
 
 
 export default routes
-
-
-///eefef
-///evfef
-//efefef
