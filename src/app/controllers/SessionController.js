@@ -17,7 +17,7 @@ class SessionController {
             return res.status(401).json({ Error: 'Incorret password' });
         }
 
-        const { id, name } = user;
+        const { id, name } = userExists;
 
         return res.json({
             user: {
