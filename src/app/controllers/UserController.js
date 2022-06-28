@@ -3,10 +3,8 @@ import User from '../models/User';
 class UserController {
 
     async store(req, res) {
-        
-        const emailExists = req.body.email
         const userIsSame = await User.findOne({
-            where: { email: emailExists }
+            where: { email: req.body.email }
         });
 
         if (userIsSame) {
