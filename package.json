@@ -8,9 +8,16 @@
   },
   "dependencies": {
     "express": "^4.18.1",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.21.1",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
+    "sequelize-cli": "^6.4.1",
     "sucrase": "^3.21.1"
-  }
+  },
+  "repository": "https://github.com/arthurmeirelessm/task-list-api.git",
+  "author": "arthurmeirelessm <arthurmsesjdfdn@gmail.com>"
 }
