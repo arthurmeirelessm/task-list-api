@@ -1,5 +1,7 @@
 import jwt from 'jsonwebtoken';
 import User from '../models/User';
+//AuthContent: importa o hash e a expiração da sessão, na pasta direcionada abaixo
+import authContent from '../../config/auth';
 
 
 class SessionController {
@@ -25,7 +27,9 @@ class SessionController {
                 name,
                 email,
             },
-            token: jwt.sign({ id }, 'fee974562a0f0dfec676c76eaf1587f9', { expiresIn: '7d' }),
+            token: jwt.sign({ id }, authContent.secret, {
+                expiresIn: authContent.expiresIn,
+            }),
         });
 
     }

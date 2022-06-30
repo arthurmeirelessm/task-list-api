@@ -1,5 +1,6 @@
 import User from '../models/User';
 
+
 class UserController {
 
     async store(req, res) {
@@ -17,6 +18,10 @@ class UserController {
             name,
             email,
         });
+    }
+
+    async update(req, res) {
+        return res.json({ ok: true}) 
     }
 }
 

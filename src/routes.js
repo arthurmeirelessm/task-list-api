@@ -3,11 +3,14 @@
 import { json, Router } from 'express';
 import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
+import authMiddleware from './app/middlewares/authMiddle';
 
 const routes = new Router();
 
 //USERS
 routes.post('/users', UserController.store);
+
+routes.put('/users', authMiddleware, UserController.update);
 
 //SESSIONS
 routes.post('/sessions', SessionController.store);
