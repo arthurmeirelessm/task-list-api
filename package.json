@@ -15,7 +15,8 @@
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.21.1",
-    "yarn": "^1.22.19"
+    "yarn": "^1.22.19",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "sequelize-cli": "^6.4.1",

@@ -1,10 +1,15 @@
 import User from '../models/User';
 import bcript from 'bcrypt';
+import Yup from 'yup';
 
 
 class UserController {
 
     async store(req, res) {
+        const schema = Yup.object().shape({
+            name: Yup.requi
+        })
+
         const userIsSame = await User.findOne({
             where: { email: req.body.email }
         });
