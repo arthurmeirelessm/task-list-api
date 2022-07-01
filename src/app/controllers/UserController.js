@@ -1,4 +1,5 @@
 import User from '../models/User';
+import bcript from 'bcrypt';
 
 
 class UserController {
@@ -21,11 +22,27 @@ class UserController {
     }
 
     async update(req, res) {
-        const { email, oldpassword} = req.body;
-        const user = await User.findByPk(userId)
+        const { email, oldpassword } = req.body;
+        const user = await User.findByPk(req.userId);
 
-        
-        return res.json({ ok: true}) 
+        if (email != user.email) {
+            const emailExists = await User.findOne({ where: { email }, });
+            if (emailExists) {
+                return res.status(400).json({ Error: 'Email already exists' })
+            }
+        }
+
+        if (oldpassword && !(await user.checkPassword(oldpassword))) {
+            return res.status(401).json({ Error: 'Invalid password' });
+        }
+
+        const {id, name} = await user.update(req.body);
+
+        return res.json({
+            id,
+            name,
+            email,
+        })
     }
 }
 
