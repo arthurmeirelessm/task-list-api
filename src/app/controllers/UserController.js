@@ -1,14 +1,24 @@
 import User from '../models/User';
 import bcript from 'bcrypt';
-import Yup from 'yup';
+import * as Yup from 'yup';
 
 
 class UserController {
 
     async store(req, res) {
         const schema = Yup.object().shape({
-            name: Yup.requi
-        })
+            name: Yup.string().required(),
+            email: Yup.string()
+            .email()
+            .required(),
+            password: Yup.string()
+            .required()
+            .min(6),
+        });
+
+        if (!(await schema.isValid(req.body))) {
+            return res.status(400).json({ Error: 'Invalid request' });
+        }
 
         const userIsSame = await User.findOne({
             where: { email: req.body.email }
