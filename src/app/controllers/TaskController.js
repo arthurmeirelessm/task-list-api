@@ -3,11 +3,12 @@ import * as Yup from 'yup';
 
 
 class TaskController {
-     async index(req, res) {
-           
-     }
-
-
+    async index(req, res) {
+        const getTasks = await Task.findAll({
+            where: { user_id: req.userId, check: false }
+        });
+        return res.json(getTasks)
+    }
 
     async store(req, res) {
         const schema = Yup.object().shape({
