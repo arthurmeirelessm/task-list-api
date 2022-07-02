@@ -21,6 +21,6 @@ routes.post('/tasks', authMiddleware, TaskController.store);
 
 routes.get('/tasks', authMiddleware, TaskController.index);
 
-routes.put('/tasks', TaskController.update);
+routes.put('/tasks/:task_id', authMiddleware, TaskController.update);
 
 export default routes;
