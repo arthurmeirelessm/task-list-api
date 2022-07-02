@@ -19,6 +19,8 @@ routes.post('/sessions', SessionController.store);
 //TASKS
 routes.post('/tasks', authMiddleware, TaskController.store);
 
-routes.get('/tasks', authMiddleware, TaskController.index)
+routes.get('/tasks', authMiddleware, TaskController.index);
+
+routes.put('/tasks', TaskController.update);
 
 export default routes;

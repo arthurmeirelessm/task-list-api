@@ -27,6 +27,10 @@ class TaskController {
 
         return res.json(createTask);
     }
+
+    async update(req, res) {
+        return res.json({ ok: true })
+    }
 }
 
 
