@@ -13,7 +13,12 @@ class Database {
 
   init() {
     this.connection = new Sequelize(databaseConfig);
-    models.map(models => models.init(this.connection));
+
+    //Aqui em baixo o map é utilizado pra percorrer os models do projeto que são declarados lá em cima
+    //e iniciar uma conexão com o banco passando o this.connection
+    models
+      .map(model => model.init(this.connection))
+      .map(model => model.associate && model.associate(this.connection.models));
   }
 
 }
