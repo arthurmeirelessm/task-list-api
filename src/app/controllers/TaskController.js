@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 
 class TaskController {
      async index(req, res) {
-           return res.json({ ok: true })
+           
      }
 
 
