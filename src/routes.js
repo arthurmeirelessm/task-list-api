@@ -4,6 +4,7 @@ import { json, Router } from 'express';
 import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
 import authMiddleware from './app/middlewares/authMiddle';
+import TaskController from './app/controllers/TaskController';
 
 const routes = new Router();
 
@@ -14,5 +15,8 @@ routes.put('/users', authMiddleware, UserController.update);
 
 //SESSIONS
 routes.post('/sessions', SessionController.store);
+
+//TASKS
+routes.post('/tasks', TaskController.store);
 
 export default routes;
