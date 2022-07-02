@@ -23,6 +23,6 @@ routes.get('/tasks', authMiddleware, TaskController.index);
 
 routes.put('/tasks/:task_id', authMiddleware, TaskController.update);
 
-routes.delete('/tasks', TaskController.destroy);
+routes.delete('/tasks/:task_id', authMiddleware, TaskController.destroy);
 
 export default routes;

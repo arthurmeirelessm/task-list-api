@@ -54,7 +54,20 @@ class TaskController {
 
 
     async destroy(req, res) {
-        return res.json({ ok: true })
+        const { task_id } = req.params;
+        const findTask = await Task.findByPk(task_id);
+
+        if (!findTask) {
+            return res.status(401).json({ Error: 'Task not exists.' });
+        }
+         
+        if(findTask.user_id != req.userId) {
+            return res.status(401).json({ Error: 'This user is not the same as the selected tasks' });
+        }
+
+        const deleteTask = await findTask.destroy();
+
+        return res.json({ ok: 'Deleted with success' })
     }
 }
 
