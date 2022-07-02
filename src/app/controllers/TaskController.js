@@ -49,8 +49,12 @@ class TaskController {
 
         const updateTask = await findTask.update(req.body);
 
-        console.log(updateTask)
         return res.json(updateTask);
+    }
+
+
+    async destroy(req, res) {
+        return res.json({ ok: true })
     }
 }
 
