@@ -38,15 +38,6 @@ module.exports = {
 
 
   down: queryInterface => {
-    return queryInterface.dropTable('tasks', {
-      created_at: {
-        type: Sequelize.DATE,
-        allowNull: false,
-      },
-      updated_at: {
-        type: Sequelize.DATE,
-        allowNull: false,
-      },
-    });
+    return queryInterface.dropTable('tasks');
   },
 };
